@@ -13,22 +13,29 @@
             height: 100vh;
         }
     </style>
-   
+
 </head>
 
 <body>
     <button id="btnCounter">+</button>
     <script>
-        // Get the byn element
-        const element = document.querySelector("#btnCounter");
-        console.log(element);
-     // Listion to click event
-       
         // Take a number which starts from zero
         let counter = 0;
+// console.log(counter);
 
-        // Every click incerement a  number
-        counter = counter + 1;
+     //  function to incerement the number 
+        function counterIncrement() {
+           // Every click incerement a  number
+            counter = counter + 1;
+            console.log(counter);
+        }
+        // Get the byn element
+        const element = document.querySelector("#btnCounter");
+
+        // Listion to click event
+        element.addEventListener("click", counterIncrement, false);
+
+        // counterIncrement();
     </script>
 </body>
 
