@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +8,7 @@
     <style>
         body {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
@@ -17,28 +18,34 @@
 </head>
 
 <body>
+    <h1 id="headingTotal"></h1>
     <input id="inputAmount" type="text"></input>
     <button id="btnAddExpence">+</button>
-      
+
     <script>
-    //  init value of expence at 0
-      let totalExpence = 0;
-    //  onButtonClick add inputAmount to totalExpence
-        function addExpenceToTotal(){
-        //    read value from inputAmount
-        const inputElement = document.querySelector("#inputAmount");
-        const textAmount = inputElement.value;
-        console.log({textAmount});
+        //  Get the heading element
+        const headingEl = document.querySelector("#headingTotal")
+        //  init value of expence at 0
+        let totalExpence = 0;
+        // set the heading element to totalExpence
+        headingEl.textContent = totalExpence;
+        //  onButtonClick add inputAmount to totalExpence
+        function addExpenceToTotal() {
+            //    read value from inputAmount
+            const inputElement = document.querySelector("#inputAmount");
+            const textAmount = inputElement.value;
 
-        //  convert it to number
-        const expence = parseInt(textAmount, 10);
-        console.log({expence});
 
-        // add that value to totalExpence
-        totalExpence = totalExpence + expence;
-        console.log({totalExpence});
+            //  convert it to number
+            const expence = parseInt(textAmount, 10);
+
+
+            // add that value to totalExpence
+            totalExpence = totalExpence + expence;
+            // set the heading elelment to totalExpence
+            headingEl.textContent = totalExpence;
         }
-        
+
         // Get the byn element
         const element = document.querySelector("#btnAddExpence");
 
