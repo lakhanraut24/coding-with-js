@@ -19,38 +19,57 @@
 
 <body>
     <h1 id="headingTotal"></h1>
-    <input id="inputAmount" type="text"></input>
-    <button id="btnAddExpence">+</button>
+    <input id="inputAmount" type="text"/>
+    <input id="inputDesc" type="text"/>
+    <button id="btnAddExpense">+</button>
 
     <script>
         //  Get the heading element
-        const headingEl = document.querySelector("#headingTotal")
+        const headingEl = document.querySelector("#headingTotal");
+       //   get the reference to desc element
+        const inputDescEl = document.querySelector("#inputDesc");
+        // ref to input amount
+        const inputElement = document.querySelector("#inputAmount");
+      
         //  init value of expence at 0
-        let totalExpence = 0;
+        let totalExpense = 0;
         // set the heading element to totalExpence
-        headingEl.textContent = totalExpence;
+        headingEl.textContent = totalExpense;
+
+        // all expences at one place
+        const allExpenses = [];
         //  onButtonClick add inputAmount to totalExpence
-        function addExpenceToTotal() {
+        function addExpenseToTotal() {
+            const expenseItem = {};
             //    read value from inputAmount
-            const inputElement = document.querySelector("#inputAmount");
-            const textAmount = inputElement.value;
+             const textAmount = inputElement.value;
+
+            //  read the desc from inputDesc
+            const textDesc = inputDescEl.value;
+            // console.log({ textDesc, textAmount});
 
 
             //  convert it to number
-            const expence = parseInt(textAmount, 10);
+            const expense = parseInt(textAmount, 10);
 
-
+        //    put it in object
+           expenseItem.desc = textDesc;
+           expenseItem.amount = expense;
+          
+           allExpenses.push(expenseItem);
+           console.clear();
+           console.table(allExpenses);
             // add that value to totalExpence
-            totalExpence = totalExpence + expence;
+            totalExpense = totalExpense + expense;
             // set the heading elelment to totalExpence
-            headingEl.textContent = totalExpence;
+            headingEl.textContent = totalExpense;
         }
 
         // Get the byn element
-        const element = document.querySelector("#btnAddExpence");
+        const element = document.querySelector("#btnAddExpense");
 
         // Listion to click event
-        element.addEventListener("click", addExpenceToTotal, false);
+        element.addEventListener("click", addExpenseToTotal, false);
 
         // counterIncrement();
     </script>
